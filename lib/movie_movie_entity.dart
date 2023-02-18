@@ -6,6 +6,7 @@ class Movie {
   final String image;
   final String description;
   final String trailer;
+  final String id;
 
   Movie({
     required this.title,
@@ -14,6 +15,7 @@ class Movie {
     required this.image,
     required this.description,
     required this.trailer,
+    required this.id,
   });
 
 }

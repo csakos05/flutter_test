@@ -66,7 +66,7 @@ class MovieDetail extends StatelessWidget{
                   )
                 ),
                 child: Hero(
-                    tag: movie.title,
+                    tag: movie.id,
                     child: Image.network(movie.image)),
               ),
             ),

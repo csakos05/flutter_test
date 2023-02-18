@@ -144,19 +144,18 @@ class __MovieListItemState extends State<_MovieListItem> {
           child: Row(
             children: [
               Hero(
-                  tag: widget.movie.title,
+                  tag: widget.movie.id,
                   child: Image.network(widget.movie.thumbnail, width: 70, height: 100,)),
               // SizedBox(width: 5),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+              Expanded(
+                child:
                   Text(
                     widget.movie.title,
                     style: const TextStyle(fontSize: 14),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                ],
+
               )
             ],
           ),

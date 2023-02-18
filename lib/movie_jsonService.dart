@@ -32,6 +32,7 @@ class MovieJsonService {
         final String imageFromJson = movie['image'];
         final String descrFromJson = movie['description'];
         final String trailerFromJson = movie['trailer'];
+        final String uniqueIdFromJson = movie['imdbid'];
 
         final Movie newMovie = Movie(
           title: titleFromJson,
@@ -39,7 +40,8 @@ class MovieJsonService {
           genreList: genreListFromJson,
           image: imageFromJson,
           description: descrFromJson,
-          trailer: trailerFromJson
+          trailer: trailerFromJson,
+          id: uniqueIdFromJson
         );
         if(genreListFromJson.contains(filter)){
         movies.add(newMovie);
