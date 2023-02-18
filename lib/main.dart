@@ -1,13 +1,6 @@
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:js';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:movie_imdb_project/movie_detail.dart';
-import 'package:movie_imdb_project/movie_form.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'movie_listScreen.dart';
+import 'package:movie_imdb_project/movie_form.dart';
 
 void main() {
   runApp(const MyApp());

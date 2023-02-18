@@ -1,13 +1,10 @@
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:js';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:lit_starfield/lit_starfield.dart';
 import 'package:movie_imdb_project/movie_detail.dart';
 import 'package:movie_imdb_project/movie_form.dart';
+
 import 'movie_jsonService.dart';
 import 'movie_movie_entity.dart';
-import 'package:lit_starfield/lit_starfield.dart';
 
 
 class MovieListScreen extends StatefulWidget {

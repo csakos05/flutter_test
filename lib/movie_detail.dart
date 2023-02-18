@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lit_starfield/view/lit_starfield_container.dart';
-import 'package:movie_imdb_project/main.dart';
-import 'movie_listScreen.dart';
-import 'movie_jsonService.dart';
 import 'movie_movie_entity.dart';
-import 'movie_trailer.dart';
 
 class MovieDetail extends StatelessWidget{
   final Movie movie;

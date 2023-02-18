@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_imdb_project/movie_listScreen.dart';
 import 'package:lit_starfield/lit_starfield.dart';
+import 'package:movie_imdb_project/movie_listScreen.dart';
 
 enum SingingCharacter { sad, happy, romance }
 
