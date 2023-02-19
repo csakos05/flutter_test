@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lit_starfield/lit_starfield.dart';
 import 'package:movie_imdb_project/movie_detail.dart';
 import 'package:movie_imdb_project/movie_form.dart';
-
 import 'movie_jsonService.dart';
 import 'movie_movie_entity.dart';
 
@@ -16,11 +14,8 @@ class MovieListScreen extends StatefulWidget {
   _MovieListScreenState createState() => _MovieListScreenState();
 }
 
-
 class _MovieListScreenState extends State<MovieListScreen> {
  late List<Movie> _movies = [];
-
-
 
   @override
   void initState() {
@@ -41,41 +36,39 @@ class _MovieListScreenState extends State<MovieListScreen> {
               ),
             ),
             Icon(Icons.more_vert),
-      ],
+          ],
           automaticallyImplyLeading: true,
           bottomOpacity: 0.1,
-
     ),
       body: Stack(
         children: [
-
-        const LitStarfieldContainer(
-        animated: true,
-        number: 250,
-        velocity: 0.85,
-        depth: 0.9,
-        scale: 4,
-        starColor: Colors.white,
-        backgroundDecoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromRGBO(10, 10, 10, 1.0),
-            //  Color.fromRGBO(45, 10, 10, 1.0),
-              Color.fromRGBO(24, 0, 38, 1.0)
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
+          const LitStarfieldContainer(
+          animated: true,
+          number: 250,
+          velocity: 0.85,
+          depth: 0.9,
+          scale: 4,
+          starColor: Colors.white,
+          backgroundDecoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(10, 10, 10, 1.0),
+              //  Color.fromRGBO(45, 10, 10, 1.0),
+                Color.fromRGBO(24, 0, 38, 1.0)
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
           ),
         ),
-      ),
-      ListView.builder(
-        itemCount: _movies.length,
-        itemBuilder: (context, index) {
-          final movie = _movies[index];
-          return _MovieListItem(movie: movie);
-        },
-      )
-      ]
+          ListView.builder(
+          itemCount: _movies.length,
+          itemBuilder: (context, index) {
+            final movie = _movies[index];
+            return _MovieListItem(movie: movie);
+            },
+          )
+        ]
       )
     );
   }
@@ -91,7 +84,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
    }
  }
 
-  String translateEnum(SingingCharacter sortBy) {
+ String translateEnum(SingingCharacter sortBy) {
     String result = "";
     switch (sortBy) {
       case SingingCharacter.happy:
