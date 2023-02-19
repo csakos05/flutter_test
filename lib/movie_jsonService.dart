@@ -6,7 +6,7 @@ import 'movie_movie_entity.dart';
 class MovieJsonService {
 
 
-  Future<List<Movie>> getNewMovies(SingingCharacter sortBy) async {
+  Future<List<Movie>> getMoviesBy(SingingCharacter sortBy) async {
     String filter = sortByTranslator(sortBy);
     final response = await http.get(
       Uri.parse('https://imdb-top-100-movies.p.rapidapi.com/'),

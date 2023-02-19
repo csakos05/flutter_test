@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lit_starfield/lit_starfield.dart';
 import 'package:movie_imdb_project/movie_detail.dart';
@@ -15,11 +16,6 @@ class MovieListScreen extends StatefulWidget {
   _MovieListScreenState createState() => _MovieListScreenState();
 }
 
-class SortBy {
-  final String radioValue;
-
-  SortBy(this.radioValue);
-}
 
 class _MovieListScreenState extends State<MovieListScreen> {
  late List<Movie> _movies = [];
@@ -28,7 +24,6 @@ class _MovieListScreenState extends State<MovieListScreen> {
 
   @override
   void initState() {
-
     super.initState();
     _fetchMovies(widget.sortBy);
   }
@@ -37,7 +32,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title:  Text('Top Movies for ${widget.sortBy}', style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.035)),
+          title:  Text('Top Movies for ${translateEnum(widget.sortBy!)}', style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.035)),
           actions: [
             Container(
               width: 100,
@@ -77,12 +72,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
         itemCount: _movies.length,
         itemBuilder: (context, index) {
           final movie = _movies[index];
-          return GestureDetector(
-              onTap: (){
-
-              },
-              child: _MovieListItem(movie: movie));
-
+          return _MovieListItem(movie: movie);
         },
       )
       ]
@@ -92,7 +82,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
 
  Future<void> _fetchMovies(SingingCharacter? sortBy) async {
    try {
-     final List<Movie> movies = await MovieJsonService().getNewMovies(sortBy!);
+     final List<Movie> movies = await MovieJsonService().getMoviesBy(sortBy!);
      setState(() {
        _movies = movies;
      });
@@ -100,6 +90,24 @@ class _MovieListScreenState extends State<MovieListScreen> {
      print(e.toString());
    }
  }
+
+  String translateEnum(SingingCharacter sortBy) {
+    String result = "";
+    switch (sortBy) {
+      case SingingCharacter.happy:
+        result = "Vidám";
+        break;
+
+      case SingingCharacter.sad:
+        result = "Szomorú";
+        break;
+
+      case SingingCharacter.romance:
+        result = "Romantikus";
+        break;
+    }
+    return result;
+  }
 }
 
 class _MovieListItem extends StatefulWidget {
@@ -155,7 +163,6 @@ class __MovieListItemState extends State<_MovieListItem> {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-
               )
             ],
           ),

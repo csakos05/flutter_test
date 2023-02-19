@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lit_starfield/lit_starfield.dart';
 import 'package:movie_imdb_project/movie_listScreen.dart';
 
-enum SingingCharacter { sad, happy, romance }
+enum SingingCharacter { sad, happy, romance, action }
 
 class MovieForm extends StatefulWidget {
   const MovieForm({super.key});
@@ -13,8 +13,13 @@ class MovieForm extends StatefulWidget {
 }
 
 class _MovieFormState extends State<MovieForm> {
-  double iconSize = 40;
-  SingingCharacter? _character = SingingCharacter.happy;
+   double iconSizeHappy = 24;
+   double iconSizeSad = 24;
+   double iconSizeRomance = 24;
+   double textSizeHappy = 24;
+   double textSizeRomance = 24;
+   double textSizeSad = 24;
+   SingingCharacter? _character = SingingCharacter.action;
 
   @override
   Widget build(BuildContext context) {
@@ -71,19 +76,21 @@ class _MovieFormState extends State<MovieForm> {
                   MouseRegion(
                     onHover: (PointerEvent event) {
                       setState(() {
-                        iconSize = 50.0; // increase icon size when hovering
+                        iconSizeHappy = 70.0;
+                        textSizeHappy = 32;
                       });
                     },
                     onExit: (PointerEvent event) {
                       setState(() {
-                        iconSize = 40.0; // reset icon size when not hovering
+                        iconSizeHappy = 40.0;
+                        textSizeHappy = 16;
                       });
                     },
                     child: ListTile(
-                      title: const Text('Vidám'),
+                      title: Text('Vidám', style: TextStyle(fontSize: textSizeHappy)),
                       leading: _character == SingingCharacter.happy
-                          ? Icon(Icons.mood,color: Colors.white,size: iconSize)
-                          : Icon(Icons.mood,color: Colors.black,size: iconSize),
+                          ? Icon(Icons.mood,color: Colors.white,size: iconSizeHappy)
+                          : Icon(Icons.mood,color: Colors.black,size: iconSizeHappy),
                       onTap: () {
                         setState(() {
                           _character = SingingCharacter.happy;
@@ -95,19 +102,21 @@ class _MovieFormState extends State<MovieForm> {
                   MouseRegion(
                     onHover: (PointerEvent event) {
                       setState(() {
-                        iconSize = 50.0; // increase icon size when hovering
+                        iconSizeRomance = 70.0;
+                        textSizeRomance = 32;
                       });
                     },
                     onExit: (PointerEvent event) {
                       setState(() {
-                        iconSize = 40.0; // reset icon size when not hovering
+                        iconSizeRomance = 40.0;
+                        textSizeRomance = 16;
                       });
                     },
                     child: ListTile(
-                      title: const Text('Romantikus'),
+                      title: Text('Romantikus', style: TextStyle(fontSize: textSizeRomance)),
                       leading: _character == SingingCharacter.romance
-                          ? Icon(Icons.favorite,color: Colors.white,size: iconSize)
-                          : Icon(Icons.favorite,color: Colors.black,size: iconSize),
+                          ? Icon(Icons.favorite,color: Colors.white,size: iconSizeRomance)
+                          : Icon(Icons.favorite,color: Colors.black,size: iconSizeRomance),
                       onTap: () {
                         setState(() {
                           _character = SingingCharacter.romance;
@@ -119,19 +128,21 @@ class _MovieFormState extends State<MovieForm> {
                   MouseRegion(
                     onHover: (PointerEvent event) {
                       setState(() {
-                        iconSize = 50.0; // increase icon size when hovering
+                        iconSizeSad = 70.0;
+                        textSizeSad = 32;
                       });
                     },
                     onExit: (PointerEvent event) {
                       setState(() {
-                        iconSize = 40.0; // reset icon size when not hovering
+                        iconSizeSad = 40.0;
+                        textSizeSad = 16;
                       });
                     },
                     child: ListTile(
-                      title: const Text('Szomorú'),
+                      title: Text('Szomorú', style: TextStyle(fontSize: textSizeSad)),
                       leading: _character == SingingCharacter.sad
-                          ? Icon(Icons.mood_bad,color: Colors.white,size: iconSize)
-                          : Icon(Icons.mood_bad,color: Colors.black,size: iconSize),
+                          ? Icon(Icons.mood_bad,color: Colors.white,size: iconSizeSad)
+                          : Icon(Icons.mood_bad,color: Colors.black,size: iconSizeSad),
                       onTap: () {
                         setState(() {
                           _character = SingingCharacter.sad;

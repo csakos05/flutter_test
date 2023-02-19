@@ -15,8 +15,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-      //    primarySwatch: Colors.grey,
-
           textTheme: GoogleFonts.antonioTextTheme(Typography.blackMountainView).apply(
               decorationColor: Colors.white,
               bodyColor: Colors.white
@@ -25,12 +23,12 @@ class MyApp extends StatelessWidget {
               backgroundColor: Color.fromRGBO(5, 3, 3, 0.8),
               iconTheme: IconThemeData(color: Colors.white),
               titleTextStyle:
-                GoogleFonts.anton(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2.5,
-                ),
+                              GoogleFonts.anton(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.5,
+                              ),
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(10),
